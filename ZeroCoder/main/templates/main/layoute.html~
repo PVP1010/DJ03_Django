@@ -16,8 +16,8 @@
 </head>
 <body>
     <aside>
-        <img src="{% static 'main/img/K1.jpeg' %}" alt="Космос" width="150px">
-        <span>Cosmos</span>
+        <img src="{% static 'main/img/K1.jpeg' %}" alt="котик на двух лапках" width="150px">
+        <span>CatDjango</span>
         <ul></ul>
             <li><a href="">Главная</a></li>
             <li><a href="">Второстепенная</a></li>
