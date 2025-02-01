@@ -1,6 +1,13 @@
 <!--модульный шаблон -->
-
-<Ul>
-    <li><a href="">Главная страница</a></Li>
-    <li><a href="">Вторая страница</a></Li>
-</ul>
+{% load static %}  <!-- Добавьте эту строку в начало! -->
+<!-- nav.html -->
+<aside>
+    <img src="{% static 'main/img/K1.jpeg' %}" alt="Космос">
+    <span>Cosmos</span>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <li><a href="{% url 'page2' %}">Вторая страница</a></li>
+        <li><a href="{% url 'about' %}">О нас</a></li>
+        <li><a href="{% url 'contact' %}">Контакты</a></li>
+    </ul>
+</aside>

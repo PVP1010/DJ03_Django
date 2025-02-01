@@ -10,3 +10,10 @@ def index(request):
 
 def new(request):
     return render(request, 'main/new.html')
+
+# main/views.py
+def about(request):
+    return render(request, 'main/about.html')
+
+def contact(request):
+    return render(request, 'main/contact.html')
