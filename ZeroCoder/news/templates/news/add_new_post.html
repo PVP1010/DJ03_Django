@@ -3,31 +3,50 @@
 {% extends 'main/layoute.html' %}           <!--наследование основного шаблона -->
 
 {% block title %}
-	<title>Строница для добавления новостей</title>     <!--Название страницы -->
+	<title>Страница для добавления новостей</title>     <!--Название страницы -->
 {% endblock %}
 
 {% block content %}                                     <!--открытие блока контента -->
-<h1>Строница для добавления новостей</h1>               <!--Название блока -->
+<h1>Страница для добавления новостей</h1>               <!--Название блока -->
 
-	{% if news %}                         <!--Условие Если news не пусто, то: выводи новости -->
-		{% for new in news %}             <!--достаём из словаря views.py/news то что нам нужно -->
-			<div>
-				<br>
-					<div class="card" style="width: 30rem;">     <!--Добавляем Bootstrap Карточка -->
-						<div class="card-body">
-							<h5 class="card-title">{{ new.title }}</h5>                       <!--Выводим заголовок -->
-							<p class="card-text">{{ new.short_description }}</p>              <!--Выводим краткое описание -->
-							<a href="{{ new.text }}" class="btn btn-primary">Подробнее</a>    <!--Выводим текст новости -->
-							<br>
-							<br>
-							<p> {{ new.pub_date }} </p>                      <!--Выводим дату публикации -->
-				            <p> {{ new.author }} </p>                        <!--Выводим автора -->
-						</div>
-					</div>
-			</div>
-		{% endfor %}                             <!--закрытие цикла for -->
-	{% else %}                                   <!--Иначе Если news пусто, то: выводи сообщение "Новостей нет" -->
-	<h4>Новостей нет</h4>                        <!--Выводим сообщение "Новостей нет" -->
+<div>
+	<form method="post" class="mt-4 p-4 border rounded shadow">
+    {% csrf_token %}  <!-- CSRF-токен для защиты формы (обязательно в Django) -->
 
-	{% endif %}                                  <!--закрытие условия If -->
-{% endblock %}                                   <!--закрытие блока контента -->
+    <!-- Название новости -->
+    <div class="form-group mb-3">
+        <label class="form-label">Название новости</label>
+        <input type="text" class="form-control" placeholder="Введите название">
+    </div>
+
+    <!-- Краткое описание -->
+    <div class="form-group mb-3">
+        <label class="form-label">Краткое описание</label>
+        <input type="text" class="form-control" placeholder="Введите описание">
+    </div>
+
+    <!-- Текст новости -->
+    <div class="form-group mb-3">
+        <label class="form-label">Текст новости</label>
+        <textarea class="form-control" rows="5" placeholder="Введите текст"></textarea>
+    </div>
+
+    <!-- Дата и время в одной строке -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <label class="form-label">Дата</label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Время</label>
+            <input type="time" class="form-control">
+        </div>
+    </div>
+
+    <!-- Кнопка отправки -->
+    <button type="submit" class="btn btn-primary w-100">
+        <i class="bi bi-plus-circle me-2"></i> Добавить новость
+    </button>
+</form>
+</div>
+{% endblock %}
