@@ -3,5 +3,5 @@ from .models import News_post                                  # импорти�
 # Create your views here.
 
 def home(request):
-    news = News_post.objects.all()                                                # получаем все новости из базы данных
-    return render(request, 'news/news.html', {'news': news})  # передаем новости в шаблон сайта news.
+    news = News_post.objects.all()             # берём все объекты из класса News_post и сохраняем в переменную news
+    return render(request, 'news/news.html', {'news': news})  # передаем их в виде словаря news.
