@@ -7,7 +7,8 @@
     <ul>
         <li><a href="{% url 'home' %}">Главная</a></li>
         <li><a href="{% url 'page2' %}">Материалы</a></li>
-        <li><a href="{% url 'news_home' %}">Новости</a></li> 
+        <li><a href="{% url 'news_home' %}">Новости</a></li>
+        <li><a href="{% url 'add_news' %}">Добавить новость</a></li>
         <li><a href="{% url 'about' %}">О нас</a></li>
         <li><a href="{% url 'contact' %}">Контакты</a></li>
     </ul>
