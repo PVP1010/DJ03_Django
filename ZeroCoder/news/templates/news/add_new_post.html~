@@ -3,11 +3,11 @@
 {% extends 'main/layoute.html' %}           <!--наследование основного шаблона -->
 
 {% block title %}
-	<title>Строница для добавления новостей</title>     <!--Название страницы -->
+	<title>Страница для добавления новостей</title>     <!--Название страницы -->
 {% endblock %}
 
 {% block content %}                                     <!--открытие блока контента -->
-<h1>Строница для добавления новостей</h1>               <!--Название блока -->
+<h1>Страница для добавления новостей</h1>               <!--Название блока -->
 
 <div>
 	<form method="post" class="mt-4 p-4 border rounded shadow">
@@ -15,27 +15,24 @@
 
     <!-- Название новости -->
     <div class="form-group mb-3">
-        <label class="form-label">Название новости</label>
-        <input type="text" class="form-control" placeholder="Введите название">
+        {{ form.title }}
     </div>
 
     <!-- Краткое описание -->
     <div class="form-group mb-3">
-        <label class="form-label">Краткое описание</label>
-        <input type="text" class="form-control" placeholder="Введите описание">
+        {{ form.short_description }}
     </div>
 
     <!-- Текст новости -->
     <div class="form-group mb-3">
-        <label class="form-label">Текст новости</label>
-        <textarea class="form-control" rows="5" placeholder="Введите текст"></textarea>
+        {{ form.text }}
     </div>
 
     <!-- Дата и время в одной строке -->
     <div class="row mb-4">
         <div class="col-md-6">
-            <label class="form-label">Дата</label>
-            <input type="date" class="form-control">
+
+            {{ form.pub_date }}
         </div>
         <div class="col-md-6">
             <label class="form-label">Время</label>
